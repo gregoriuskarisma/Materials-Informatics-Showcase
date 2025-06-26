@@ -1,4 +1,4 @@
-# MatData: Materials Informatics Showcase
+# Materials Informatics Showcase
 
 The website will introduce and explore the field of Materials Informatics. This involves showcasing how data science and informatics tools are applied to materials science and engineering to accelerate discovery, understand properties, and optimize materials. It will cover fundamentals of materials data, common data analytics techniques in MSE, and illustrative case studies.
 
