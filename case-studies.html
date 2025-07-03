@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | MatData</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Table styling to match site theme */
+        .case-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .case-table th {
+            background-color: var(--primary);
+            color: var(--background);
+            padding: 1rem;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .case-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .case-table tr:nth-child(even) {
+            background-color: #f8fbfa;
+        }
+
+        .case-table tr:hover {
+            background-color: #e6f7f0;
+        }
+
+        .table-caption {
+            font-style: italic;
+            margin-top: 0.5rem;
+            color: #555;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header>
+        <h1>MatData: Materials Informatics Showcase</h1>
+        <p>Exploring the intersection of data science and materials engineering.</p>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="techniques.html">Techniques</a></li>
+            <li><a href="case-studies.html" class="active">Case Studies</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content for the Case Studies Page -->
+    <main>
+        <section id="case-study-1">
+            <h3>Case Study 1: Inverse Design of a High-Performance Solder Alloy</h3>
+            <p>
+                <strong>Problem:</strong> An electronics manufacturer needs to develop a new lead-free solder alloy for use in high-temperature automotive applications. The design requires an "inverse design" approach where the properties are specified first. The target properties are: the alloy must be completely solid at 230°C to ensure stability during operation, but fully liquid by 250°C to allow for efficient manufacturing. The final microstructure must also be controlled to resist thermal fatigue.
+            </p>
+            <p>
+                <strong>Solution:</strong> This problem is solved using computational thermodynamics, which relies on the Gibbs free energy equation (G = H − TS) to determine which phase of a material is most stable. Using data science, a vast number of potential alloy compositions (e.g., combinations of tin, silver, and copper) are computationally screened. For each composition, thermodynamic models are used to generate a phase diagram, which maps the stable phases as a function of temperature and composition. Advanced algorithms then search these generated diagrams to identify compositions whose solidus line (below which it is fully solid) and liquidus line (above which it is fully liquid) meet the specified temperature constraints. The model would specifically search for compositions near a eutectic point, where a liquid transforms into a two-phase solid, as this allows for precise control over the melting behavior and final microstructure. This approach predicts a small number of promising candidates for experimental testing, drastically accelerating the discovery process compared to a traditional trial-and-error approach.
+            </p>
+            
+            <!-- Table for Case Study 1 -->
+            <table class="case-table">
+                <thead>
+                    <tr>
+                        <th>Alloy Composition</th>
+                        <th>Solidus Temp (°C)</th>
+                        <th>Liquidus Temp (°C)</th>
+                        <th>Eutectic Point</th>
+                        <th>Predicted Stability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sn96.5/Ag3.0/Cu0.5</td>
+                        <td>217</td>
+                        <td>220</td>
+                        <td>Yes</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Sn95.5/Ag4.0/Cu0.5</td>
+                        <td>221</td>
+                        <td>226</td>
+                        <td>Partial</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Sn97.0/Ag2.5/Cu0.5</td>
+                        <td>225</td>
+                        <td>235</td>
+                        <td>No</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>Sn96.0/Ag3.5/Cu0.5</td>
+                        <td>230</td>
+                        <td>245</td>
+                        <td>Near</td>
+                        <td>High</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="table-caption">Table 1: Candidate solder alloys with phase transition temperatures</p>
+        </section>
+
+        <section id="case-study-2">
+            <h3>Case Study 2: Optimizing Steel Hardness Through Controlled Cooling</h3>
+            <p>
+                <strong>Problem:</strong> A tool manufacturer needs to create a steel component with exceptional hardness. The metallurgical specifications require a final microstructure that is at least 95% martensite, a very hard and brittle structure. The challenge is to determine the precise minimum cooling rate (quenching) required to achieve this. Cooling too slowly will result in softer materials like pearlite, while cooling much faster than necessary increases the risk of cracking and raises energy costs.
+            </p>
+            <p>
+                <strong>Solution:</strong> This is a problem of kinetics, which governs the rate of phase transformations. The solution is centered on the mathematical interpretation of a Time-Temperature-Transformation (TTT) diagram for the specific steel alloy. After heating the steel to form austenite, the cooling process must be fast enough to avoid the formation of pearlite. The formation of martensite is a diffusionless transformation that occurs only when cooling is rapid enough to prevent atoms from diffusing into other structures. The advanced mathematical component involves creating a heat-transfer model (using differential equations) to calculate the cooling curve for the steel part. By overlaying this calculated cooling curve on the TTT diagram, engineers can find the "critical cooling rate", the slowest possible quench that still avoids the "nose" of the pearlite transformation curve. This ensures the austenite transforms into martensite, achieving the desired hardness by using a quantitative, kinetics-based model to perfect the manufacturing process.
+            </p>
+            
+            <!-- Table for Case Study 2 -->
+            <table class="case-table">
+                <thead>
+                    <tr>
+                        <th>Cooling Rate (°C/s)</th>
+                        <th>Resulting Microstructure</th>
+                        <th>Martensite Fraction (%)</th>
+                        <th>Hardness (HRC)</th>
+                        <th>Crack Risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10</td>
+                        <td>Pearlite + Ferrite</td>
+                        <td>5%</td>
+                        <td>25</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>Bainite + Martensite</td>
+                        <td>65%</td>
+                        <td>45</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>100</td>
+                        <td>Martensite (Partial)</td>
+                        <td>92%</td>
+                        <td>58</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>150</td>
+                        <td>Full Martensite</td>
+                        <td>99%</td>
+                        <td>62</td>
+                        <td>Critical</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="table-caption">Table 2: Cooling rate effects on steel microstructure and properties</p>
+        </section>
+
+        <section id="case-study-3">
+            <h3>Case Study 3: Predicting the Strength of an Alloy from Microscopic Images</h3>
+            <p>
+                <strong>Problem:</strong> An aerospace firm is refining a forging process for a new alloy to be used in turbine blades. Manually testing the mechanical strength of each forged part is slow and expensive. The company needs a data-driven method to accurately predict the yield strength of a component by analyzing images of its internal microstructure.
+            </p>
+            <p>
+                <strong>Solution:</strong> The solution combines materials science principles with data science techniques. The mechanical strength of crystalline materials is known to be heavily influenced by planar defects, specifically grain boundaries, which are the interfaces between individual crystals in the material. These boundaries strengthen the material by obstructing the movement of dislocations. This relationship is described by a mathematical formula known as the Hall-Petch relationship, which states that yield strength is inversely proportional to the square root of the average grain size. First, a computer vision model is trained to analyze microscope images of the forged alloy and automatically calculate the average grain size. This value is then fed into the Hall-Petch equation (σy = σ0 + ky*d^(-1/2)) to predict the material's strength. This allows the company to rapidly assess the quality of a forged component by linking its processing to its microstructure and predicting its final performance without destructive testing.
+            </p>
+            
+            <!-- Table for Case Study 3 -->
+            <table class="case-table">
+                <thead>
+                    <tr>
+                        <th>Sample ID</th>
+                        <th>Grain Size (μm)</th>
+                        <th>Predicted Strength (MPa)</th>
+                        <th>Actual Strength (MPa)</th>
+                        <th>Prediction Error (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TB-001</td>
+                        <td>45.2</td>
+                        <td>825</td>
+                        <td>812</td>
+                        <td>1.6</td>
+                    </tr>
+                    <tr>
+                        <td>TB-002</td>
+                        <td>28.7</td>
+                        <td>945</td>
+                        <td>932</td>
+                        <td>1.4</td>
+                    </tr>
+                    <tr>
+                        <td>TB-003</td>
+                        <td>12.5</td>
+                        <td>1120</td>
+                        <td>1105</td>
+                        <td>1.3</td>
+                    </tr>
+                    <tr>
+                        <td>TB-004</td>
+                        <td>8.3</td>
+                        <td>1250</td>
+                        <td>1238</td>
+                        <td>1.0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="table-caption">Table 3: Grain size measurements vs. predicted/actual strength</p>
+        </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer>
+        <p>&copy; 2025 Gregorius Karisma. All Rights Reserved.</p>
+        <p>ASU | CIS 300 | Web Design and Development Project</p>
+    </footer>
+
+</body>
+</html>

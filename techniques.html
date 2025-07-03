@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techniques | MatData</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header>
+        <h1>MatData: Materials Informatics Showcase</h1>
+        <p>Exploring the intersection of data science and materials engineering.</p>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="techniques.html" class="active">Techniques</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content for the Techniques Page -->
+    <main>
+        <section id="linear-regression">
+            <h3>Linear Regression</h3>
+            <p>
+                In materials science, linear regression is a method used to predict material properties by creating a mathematical relationship between a property and a set of descriptive features. This technique assumes a linear relationship, where the property being predicted is a weighted sum of input variables or descriptors. These descriptors can include elemental composition, processing parameters like temperature, and microstructural features such as grain size. The main objective is to find the best weights for each descriptor to minimize the difference between predicted and actual property values. For instance, the Hall-Petch relationship, which links a material's yield strength to the inverse square root of its average grain size, is a classic example of a simple linear regression model. However, the primary limitation of this technique is its assumption of a linear relationship, as material behaviors are often governed by complex, non-linear interactions.
+            </p>
+        </section>
+
+        <section id="svm">
+            <h3>Support Vector Machines</h3>
+            <p>
+                Support Vector Machines (SVMs) are a supervised machine learning technique used for classification tasks in materials science, such as distinguishing between different crystal structures. An SVM works by finding an optimal hyperplane that best separates data points of different classes in a high-dimensional feature space. This hyperplane is chosen to maximize the distance to the nearest data points of any class. For non-linearly separable data, SVMs use a "kernel trick" to map data into a higher-dimensional space where linear separation is possible, making them suitable for classifying crystal structures.
+            </p>
+            <p>
+                In practice, SVM models are trained on datasets of known materials, using fundamental atomic and chemical properties like ionic radii, electronegativity, and valence electron counts as descriptors. For example, in classifying ABX₃ perovskite halides, crucial descriptors include the ionic radii of A and B cations and derived geometric factors. SVMs have demonstrated high effectiveness, with one study on perovskites achieving a classification accuracy of 91.33%. While SVMs are a robust tool, other models like LightGBM and XGBoost have shown slightly higher accuracies in some perovskite classification studies.
+            </p>
+        </section>
+
+        <section id="pca">
+            <h3>Principal Component Analysis</h3>
+            <p>
+                Principal Component Analysis (PCA) is an unsupervised machine learning technique that reduces the dimensionality of complex, high-dimensional datasets in materials science while retaining most of the original variation. It transforms a set of correlated variables into a smaller set of uncorrelated variables known as principal components (PCs). The first PC captures the largest possible variance, and each subsequent PC is orthogonal to the previous ones, capturing the maximum remaining variance. This simplifies the dataset, making it easier to visualize and analyze.
+            </p>
+            <p>
+                PCA is widely used in materials science, such as in the analysis of large materials databases to identify the most critical features determining a material's properties. For example, when analyzing high-entropy alloys with numerous features, PCA can find that the first two or three PCs account for over 90% of the total variance. This reduction allows for the visualization of complex compositional effects and improves the performance of other machine learning algorithms by focusing them on the most important features.
+            </p>
+        </section>
+
+        <section id="nlp">
+            <h3>Natural Language Processing (NLP)</h3>
+            <p>
+                Natural Language Processing (NLP) is a field of AI that enables computers to understand and extract information from unstructured human language. In materials science, NLP is crucial for processing scientific literature, patents, and reports, which contain vast amounts of information on material synthesis, characterization, and performance. NLP tools can automatically parse this text to convert it into structured, machine-readable data for analysis and database creation.
+            </p>
+            <p>
+                Practical applications of NLP include using Named Entity Recognition (NER) to identify material names and properties, and Relation Extraction to link them. For example, the tool "ChemDataExtractor" is designed to parse chemical texts and extract associated data. The impact of NLP is significant; one project used an NLP system to process over 640,000 journal articles to build a database of more than 32,000 inorganic material synthesis recipes. Another study on optical materials extracted material names with a high accuracy (F1-score of 0.94), demonstrating NLP's ability to accelerate literature reviews and enable large-scale data analysis.
+            </p>
+        </section>
+
+        <section id="computer-vision">
+            <h3>Computer Vision</h3>
+            <p>
+                In materials science, computer vision is an AI field used to automatically analyze and quantify visual data, particularly microstructures from microscopes. Since material properties are closely linked to their microstructure, computer vision, often using convolutional neural networks (CNNs), automates the characterization process. This includes identifying material phases, measuring grain sizes, detecting defects, and classifying microstructural morphologies.
+            </p>
+            <p>
+                This automated analysis provides quantitative and high-throughput results that are difficult to achieve manually. For instance, a CNN model achieved over 95% accuracy in identifying different phases in steel microstructures, a task crucial for predicting mechanical properties. The data extracted can be directly correlated with material properties; for example, computer vision was used to quantify nanoparticle dispersion in polymer composites, and these metrics were then used to accurately predict the material's toughness. Furthermore, computer vision models have shown over 99% accuracy in detecting microscopic cracks, significantly improving quality control.
+            </p>
+        </section>
+
+        <section id="random-forests">
+            <h3>Random Forests</h3>
+            <p>
+                A Random Forest is an ensemble algorithm used for complex regression and classification tasks in materials science. It works by building numerous decision trees during training and then outputting the most common class (for classification) or the average prediction (for regression) of the individual trees. To prevent overfitting, the algorithm uses two key randomization techniques: each tree is built from a random sample of the training data, and each split in a tree is based on a random subset of features.
+            </p>
+            <p>
+                Random Forests are powerful because they can model complex, non-linear relationships without extensive feature engineering. They have been successfully used to predict a wide range of material properties, such as the band gap of new materials. Quantitative evidence supports their effectiveness; a Random Forest model predicting the yield strength of high-entropy alloys achieved a coefficient of determination (R²) value greater than 0.9, outperforming other models. Similarly, in classification tasks like predicting the stability of crystal structures, Random Forest models have reached accuracies well above 90%.
+            </p>
+        </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer>
+        <p>&copy; 2025 Gregorius Karisma. All Rights Reserved.</p>
+        <p>ASU | CIS 300 | Web Design and Development Project</p>
+    </footer>
+
+</body>
+</html>
