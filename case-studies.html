@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Studies | MatData</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for a clean, modern look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-REGSLW6LQM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-REGSLW6LQM');
+    </script>
     <style>
         /* Table styling to match site theme */
         .case-table {
@@ -51,25 +58,22 @@
 </head>
 <body>
 
-    <!-- Site Header -->
     <header>
         <h1>MatData: Materials Informatics Showcase</h1>
         <p>Exploring the intersection of data science and materials engineering.</p>
     </header>
 
-    <!-- Main Navigation Bar -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="concepts.html">Concepts</a></li>
             <li><a href="techniques.html">Techniques</a></li>
             <li><a href="case-studies.html" class="active">Case Studies</a></li>
-            <li><a href="#">Resources</a></li>
+            <li><a href="resources.html">Resources</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Main Content for the Case Studies Page -->
     <main>
         <section id="case-study-1">
             <h3>Case Study 1: Inverse Design of a High-Performance Solder Alloy</h3>
@@ -80,7 +84,6 @@
                 <strong>Solution:</strong> This problem is solved using computational thermodynamics, which relies on the Gibbs free energy equation (G = H − TS) to determine which phase of a material is most stable. Using data science, a vast number of potential alloy compositions (e.g., combinations of tin, silver, and copper) are computationally screened. For each composition, thermodynamic models are used to generate a phase diagram, which maps the stable phases as a function of temperature and composition. Advanced algorithms then search these generated diagrams to identify compositions whose solidus line (below which it is fully solid) and liquidus line (above which it is fully liquid) meet the specified temperature constraints. The model would specifically search for compositions near a eutectic point, where a liquid transforms into a two-phase solid, as this allows for precise control over the melting behavior and final microstructure. This approach predicts a small number of promising candidates for experimental testing, drastically accelerating the discovery process compared to a traditional trial-and-error approach.
             </p>
             
-            <!-- Table for Case Study 1 -->
             <table class="case-table">
                 <thead>
                     <tr>
@@ -134,7 +137,6 @@
                 <strong>Solution:</strong> This is a problem of kinetics, which governs the rate of phase transformations. The solution is centered on the mathematical interpretation of a Time-Temperature-Transformation (TTT) diagram for the specific steel alloy. After heating the steel to form austenite, the cooling process must be fast enough to avoid the formation of pearlite. The formation of martensite is a diffusionless transformation that occurs only when cooling is rapid enough to prevent atoms from diffusing into other structures. The advanced mathematical component involves creating a heat-transfer model (using differential equations) to calculate the cooling curve for the steel part. By overlaying this calculated cooling curve on the TTT diagram, engineers can find the "critical cooling rate", the slowest possible quench that still avoids the "nose" of the pearlite transformation curve. This ensures the austenite transforms into martensite, achieving the desired hardness by using a quantitative, kinetics-based model to perfect the manufacturing process.
             </p>
             
-            <!-- Table for Case Study 2 -->
             <table class="case-table">
                 <thead>
                     <tr>
@@ -188,7 +190,6 @@
                 <strong>Solution:</strong> The solution combines materials science principles with data science techniques. The mechanical strength of crystalline materials is known to be heavily influenced by planar defects, specifically grain boundaries, which are the interfaces between individual crystals in the material. These boundaries strengthen the material by obstructing the movement of dislocations. This relationship is described by a mathematical formula known as the Hall-Petch relationship, which states that yield strength is inversely proportional to the square root of the average grain size. First, a computer vision model is trained to analyze microscope images of the forged alloy and automatically calculate the average grain size. This value is then fed into the Hall-Petch equation (σy = σ0 + ky*d^(-1/2)) to predict the material's strength. This allows the company to rapidly assess the quality of a forged component by linking its processing to its microstructure and predicting its final performance without destructive testing.
             </p>
             
-            <!-- Table for Case Study 3 -->
             <table class="case-table">
                 <thead>
                     <tr>
@@ -234,9 +235,9 @@
         </section>
     </main>
 
-    <!-- Site Footer -->
     <footer>
         <p>&copy; 2025 Gregorius Karisma. All Rights Reserved.</p>
+        <p><a href="contact.html">Contact Admin via Contact Form</a></p>
         <p>ASU | CIS 300 | Web Design and Development Project</p>
     </footer>
 
